@@ -1,0 +1,13 @@
+body { font-family: system-ui, sans-serif; background: #0f1115; color: #e8e8e8; margin: 0; }
+main { max-width: 760px; margin: 0 auto; padding: 24px; }
+h1 { margin-bottom: 0; } .tagline { color: #9fb3c8; }
+.honesty { background: #2a2118; border: 1px solid #8a6d3b; padding: 12px; border-radius: 8px; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 16px 0; }
+button { background: #4f7cff; color: #fff; border: 0; padding: 8px 14px; border-radius: 6px; cursor: pointer; }
+.badge { background: #333; padding: 6px 10px; border-radius: 20px; font-size: 13px; }
+canvas, video { width: 100%; background: #eef2f5; border-radius: 8px; }
+.results { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 16px; }
+.card { background: #1c212b; padding: 12px; border-radius: 8px; }
+.card p { white-space: pre-wrap; } .small { font-size: 13px; color: #9fb3c8; }
+#log { padding-left: 18px; font-size: 13px; } footer { color: #9fb3c8; font-size: 13px; margin-top: 20px; }
+@media (max-width: 700px) { .results { grid-template-columns: 1fr; } }

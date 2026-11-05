@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SightCount — real-time audience intelligence</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>SightCount</h1>
+  <p class="tagline">Real-time audience intelligence from any camera — count, then <em>understand</em> the room.</p>
+  <p class="honesty">
+    <strong>Honest limits, read first:</strong> the counter below is a simple blob counter
+    (connected dark regions in a frame). It is <strong>not</strong> a verified person detector.
+    Sample mode uses synthetic, computer-drawn scenes — counts there are counts of drawn
+    figures, labelled as such. Webcam/upload counting is an estimate, not a headcount.
+    The interpretation layer is labelled <strong>META MODEL API</strong> when a key is set,
+    otherwise <strong>LOCAL FALLBACK</strong>.
+  </p>
+
+  <section class="controls">
+    <label>Source:
+      <select id="mode">
+        <option value="sample">Sample scene (synthetic, labelled demo)</option>
+        <option value="webcam">Webcam preview (camera only; count is a blob estimate)</option>
+        <option value="upload">Upload an image (blob estimate)</option>
+      </select>
+    </label>
+    <label>Sample crowd size:
+      <input id="sampleSize" type="number" min="0" max="40" value="12">
+    </label>
+    <input id="fileInput" type="file" accept="image/*" hidden>
+    <button id="startCam" hidden>Start camera</button>
+    <button id="countBtn">Count this frame</button>
+    <button id="interpretBtn">Interpret scene (Meta layer)</button>
+    <span id="apiBadge" class="badge">checking API…</span>
+  </section>
+
+  <section class="stage">
+    <canvas id="view" width="640" height="360"></canvas>
+    <video id="video" width="640" height="360" autoplay playsinline hidden></video>
+  </section>
+
+  <section class="results">
+    <div class="card"><h2>Count</h2><p id="countOut">—</p><p id="countNote" class="small"></p></div>
+    <div class="card"><h2>Interpretation</h2>
+      <p id="interpSource" class="small"></p>
+      <p id="interpOut">Press “Interpret scene” after counting.</p>
+    </div>
+    <div class="card"><h2>Event log</h2><ul id="log"></ul></div>
+  </section>
+
+  <footer>
+    <p>Indie track, Meta Global AI Developer Hackathon. Built as new event work, Nov 2026.
+    SENTINEL-EDGE is pre-existing work and is <strong>not</strong> this submission — see README.</p>
+  </footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
